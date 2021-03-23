@@ -4,6 +4,8 @@ from pytorch3dunet.datasets.utils import get_class
 from pytorch3dunet.unet3d.config import load_config
 from pytorch3dunet.unet3d.utils import get_logger
 
+# from pytorch3dunet.unet3d.trainer import UNet3DTrainerBuilder
+
 logger = get_logger('TrainingSetup')
 
 
@@ -25,6 +27,10 @@ def main():
     trainer_builder_class = config['trainer'].get('builder', default_trainer_builder_class)
     trainer_builder = get_class(trainer_builder_class, modules=['pytorch3dunet.unet3d.trainer'])
     trainer = trainer_builder.build(config)
+
+    # trainer_builder = UNet3DTrainerBuilder()
+    # trainer = trainer_builder.build(config)
+
     # Start training
     trainer.fit()
 

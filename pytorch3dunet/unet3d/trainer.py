@@ -66,8 +66,8 @@ def _create_trainer(config, model, optimizer, lr_scheduler, loss_criterion, eval
 
 
 class UNet3DTrainerBuilder:
-    @staticmethod
-    def build(config):
+    # @staticmethod
+    def build(self, config):
         # Create the model
         model = get_model(config['model'])
         # use DataParallel if more than 1 GPU available
